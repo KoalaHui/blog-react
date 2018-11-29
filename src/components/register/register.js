@@ -15,7 +15,7 @@ class Register extends Component {
 			password: '',
 			phone: '',
 			introduce: '',
-			type: 1,
+			type: 0,
 		};
 		this.register = this.register.bind(this);
 		this.handleOk = this.handleOk.bind(this);
