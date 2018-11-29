@@ -9,10 +9,7 @@ class Layouts extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			// value: null,
 		};
-		// console.log(this.props);
-		// console.log(this.props.location.pathname);
 	}
 	componentDidMount() { }
 	render() {
@@ -33,7 +30,7 @@ class Layouts extends Component {
 						</Layout>
 					</Content>
 					<Footer style={{ textAlign: 'center', background: '#fff' }}>
-						全栈修炼 ©2018 Created by BiaoChenXuYing
+						©2018 Created by FelixHui
 					</Footer>
 				</Layout>
 				<BackTop />
