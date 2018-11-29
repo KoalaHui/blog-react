@@ -118,7 +118,7 @@ class Nav extends Component {
 				>
 					<Row className="container">
 						<Col style={{ width: '120px', float: 'left' }}>
-							<a href="http://biaochenxuying.cn/main.html">
+							<a href="http://FelixHui.cn/main.html">
 								<div className="logo ">
 									<img src={logo} alt="" />
 								</div>

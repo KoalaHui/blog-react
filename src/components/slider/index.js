@@ -134,7 +134,7 @@ class SliderRight extends Component {
 		return (
 			<div className="right">
 				<Avatar className="right-logo" src={logo} size={130} icon="user" />
-				<div className="title">BiaoChenXuYing</div>
+				<div className="title">FelixHui</div>
 				<div className="right-content">
 					{/* <div className="item">
 						<div className="num">123</div>粉丝<Icon type="right" theme="outlined" />
@@ -152,7 +152,7 @@ class SliderRight extends Component {
 				<div className="introduce">
 					<div className="title">个人介绍</div>
 					<div className="content">
-						加班到天明，学习到昏厥 ！！！ <br /> 微信公众号：【 BiaoChenXuYing 】 <br /> 分享 WEB 全栈开发等相关的技术文章，热点资源，全栈程序员的成长之路。
+						我心坦荡荡 ！！！ <br />小人常戚戚 ！！！<br /> 
 					</div>
 					<div className="footer">{linkChildren}</div>
 				</div>
