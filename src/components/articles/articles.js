@@ -130,18 +130,18 @@ class Articles extends Component {
     https
       .get(
         urls.getArticleList,
-        {
-          params: {
-            keyword: this.state.keyword,
-            likes: this.state.likes,
-            state: this.state.state,
-            tag_id: this.state.tag_id,
-            category_id: this.state.category_id,
-            pageNum: this.state.pageNum,
-            pageSize: this.state.pageSize,
-          },
-        },
-        { withCredentials: true },
+        // {
+        //   params: {
+        //     keyword: this.state.keyword,
+        //     likes: this.state.likes,
+        //     state: this.state.state,
+        //     tag_id: this.state.tag_id,
+        //     category_id: this.state.category_id,
+        //     pageNum: this.state.pageNum,
+        //     pageSize: this.state.pageSize,
+        //   },
+        // },
+        // { withCredentials: true },
       )
       .then(res => {
         let num = this.state.pageNum;

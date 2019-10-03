@@ -2,11 +2,16 @@
   "name": "blog-react",
   "version": "0.1.0",
   "private": true,
+  "scripts": {
+    "dev": "node scripts/start.js",
+    "build": "node scripts/build.js",
+    "test": "node scripts/test.js"
+  },
   "dependencies": {
     "@babel/core": "7.2.2",
     "@svgr/webpack": "4.1.0",
-    "antd": "^3.15.0",
-    "axios": "^0.18.0",
+    "antd": "^3.21.0",
+    "axios": "^0.19.0",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "9.0.0",
     "babel-jest": "23.6.0",
@@ -46,11 +51,11 @@
     "postcss-loader": "3.0.0",
     "postcss-preset-env": "6.5.0",
     "postcss-safe-parser": "4.0.1",
-    "react": "^16.8.4",
+    "react": "^16.10.0",
     "react-addons-css-transition-group": "^15.6.2",
     "react-app-polyfill": "^0.2.2",
     "react-dev-utils": "^8.0.0",
-    "react-dom": "^16.8.4",
+    "react-dom": "^16.10.0",
     "react-loadable": "^5.5.0",
     "react-redux": "^6.0.1",
     "react-router": "^4.3.1",
@@ -68,20 +73,9 @@
     "webpack-manifest-plugin": "2.0.4",
     "workbox-webpack-plugin": "3.6.3"
   },
-  "scripts": {
-    "start": "node scripts/start.js",
-    "build": "node scripts/build.js",
-    "test": "node scripts/test.js"
-  },
   "eslintConfig": {
     "extends": "react-app"
   },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ],
   "devDependencies": {
     "@babel/plugin-proposal-decorators": "^7.3.0",
     "babel-plugin-import": "^1.11.0",
@@ -145,5 +139,11 @@
         }
       ]
     ]
-  }
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }

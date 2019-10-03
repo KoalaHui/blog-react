@@ -27,7 +27,7 @@ class Articles extends Component {
       type: 1, //文章类型 => 1: 普通文章，2: 简历，3: 管理员介绍
       articleDetail: {
         _id: '',
-        author: 'biaochenxuying',
+        author: 'Felix',
         category: [],
         comments: [],
         create_time: '',
@@ -112,12 +112,12 @@ class Articles extends Component {
       [event.target.name]: event.target.value,
     });
   }
-
   likeArticle() {
     if (!this.state.articleDetail._id) {
       message.error('该文章不存在！', 1);
       return;
     }
+    // eslint-disable-next-line
     let user_id = '';
     if (window.sessionStorage.userInfo) {
       let userInfo = JSON.parse(window.sessionStorage.userInfo);
@@ -132,11 +132,11 @@ class Articles extends Component {
     https
       .post(
         urls.likeArticle,
-        {
-          id: this.state.articleDetail._id,
-          user_id,
-        },
-        { withCredentials: true },
+        // {
+        //   id: this.state.articleDetail._id,
+        //   user_id,
+        // },
+        // { withCredentials: true },
       )
       .then(res => {
         if (res.status === 200 && res.data.code === 0) {
@@ -201,10 +201,10 @@ class Articles extends Component {
   }
 
   componentWillUnmount() {
-    document.title = 'BiaoChenXuYing 的博客网站';
+    document.title = 'Felix 的博客网站';
     document
       .getElementById('keywords')
-      .setAttribute('content', 'BiaoChenXuYing 的博客网站');
+      .setAttribute('content', 'Felix 的博客网站');
     document
       .getElementById('description')
       .setAttribute(
@@ -265,9 +265,9 @@ class Articles extends Component {
                   <span className="publish-time">
                     {this.state.articleDetail.create_time
                       ? timestampToTime(
-                          this.state.articleDetail.create_time,
-                          true,
-                        )
+                        this.state.articleDetail.create_time,
+                        true,
+                      )
                       : ''}
                   </span>
                   <span className="wordage">
@@ -340,8 +340,8 @@ class Articles extends Component {
             }}
           />
         ) : (
-          ''
-        )}
+            ''
+          )}
       </div>
     );
   }
