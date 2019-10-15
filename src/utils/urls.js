@@ -2,7 +2,7 @@
 export const urls = {
   login: 'login',
   logout: 'logout',
-  register: 'register',
+  register: 'user',
   getUser: 'getUser',
 
   addComment: 'addComment',
@@ -11,7 +11,7 @@ export const urls = {
 
   getArticleList: 'articles',
   likeArticle: 'likeArticle',
-  getArticleDetail: 'getArticleDetail',
+  getArticleDetail: 'articles',
 
   addMessage: 'addMessage',
   getMessageList: 'getMessageList',

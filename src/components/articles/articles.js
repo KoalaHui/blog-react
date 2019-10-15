@@ -147,8 +147,8 @@ class Articles extends Component {
         let num = this.state.pageNum;
         if (res.status === 200 && res.data.code === 0) {
           this.setState(preState => ({
-            articlesList: [...preState.articlesList, ...res.data.data.list],
-            total: res.data.data.count,
+            articlesList: [...preState.articlesList, ...res.data.data.lists],
+            total: res.data.data.total,
             pageNum: ++num,
             isLoading: false,
           }));
@@ -169,14 +169,14 @@ class Articles extends Component {
   render() {
     const list = this.state.articlesList.map((item, i) => (
       <ReactCSSTransitionGroup
-        key={item._id}
+        key={item.id}
         transitionName="example"
         transitionAppear={true}
         transitionAppearTimeout={1000}
         transitionEnterTimeout={1000}
         transitionLeaveTimeout={1000}
       >
-        <li key={item._id} className="have-img">
+        <li key={item.id} className="have-img">
           <a className="wrap-img" href="/" target="_blank">
             <img
               className="img-blur-done"
@@ -190,7 +190,7 @@ class Articles extends Component {
             <Link
               className="title"
               target="_blank"
-              to={`/articleDetail?article_id=${item._id}`}
+              to={`/articleDetail?article_id=${item.id}`}
             >
               {item.title}
             </Link>
@@ -198,25 +198,25 @@ class Articles extends Component {
             <div className="meta">
               <Link
                 rel="noopener noreferrer"
-                to={`/articleDetail?article_id=${item._id}`}
+                to={`/articleDetail?article_id=${item.id}`}
               >
-                <Icon type="eye" theme="outlined" /> {item.meta.views}
+                <Icon type="eye" theme="outlined" />
               </Link>{' '}
               <Link
                 target="_blank"
-                to={`/articleDetail?article_id=${item._id}`}
+                to={`/articleDetail?article_id=${item.id}`}
               >
-                <Icon type="message" theme="outlined" /> {item.meta.comments}
+                <Icon type="message" theme="outlined" /> {item.comments}
               </Link>{' '}
               <Link
                 target="_blank"
-                to={`/articleDetail?article_id=${item._id}`}
+                to={`/articleDetail?article_id=${item.id}`}
               >
-                <Icon type="heart" theme="outlined" /> {item.meta.likes}
+                <Icon type="heart" theme="outlined" /> 
               </Link>
               <span className="time">
-                {item.create_time
-                  ? timestampToTime(item.create_time, true)
+                {item.created_on
+                  ? timestampToTime(item.created_on, true)
                   : ''}
               </span>
             </div>
@@ -230,8 +230,8 @@ class Articles extends Component {
         {this.state.tag_id ? (
           <h3 className="left-title">{this.state.tag_name} 相关的文章：</h3>
         ) : (
-          ''
-        )}
+            ''
+          )}
         <ul className="note-list" id="list">
           {list}
         </ul>

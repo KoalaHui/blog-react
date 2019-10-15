@@ -5,7 +5,7 @@ export function throttle(fn, delay) {
     timer = null;
   // 将throttle处理结果当作函数返回
 
-  return function() {
+  return function () {
     // 保留调用时的this上下文
     let context = this;
     // 保留调用时传入的参数
@@ -17,7 +17,7 @@ export function throttle(fn, delay) {
     if (now - last < delay) {
       // 如果时间间隔小于我们设定的时间间隔阈值，则为本次触发操作设立一个新的定时器
       clearTimeout(timer);
-      timer = setTimeout(function() {
+      timer = setTimeout(function () {
         last = now;
         fn.apply(context, args);
       }, delay);
@@ -122,6 +122,7 @@ export function getWindowHeight() {
 }
 //// 时间 格式化成 2018-12-12 12:12:00
 export function timestampToTime(timestamp, dayMinSecFlag) {
+  timestamp = timestamp * 1000
   const date = new Date(timestamp);
   const Y = date.getFullYear() + '-';
   const M =

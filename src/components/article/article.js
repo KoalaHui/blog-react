@@ -156,19 +156,12 @@ class Articles extends Component {
       });
   }
 
-  handleSearch(article_id) {
+  handleSearch = (article_id) => {
+    const self = this
     this.setState({
       isLoading: true,
     });
-    https
-      .post(
-        urls.getArticleDetail,
-        {
-          id: article_id,
-          type: this.state.type,
-        },
-        { withCredentials: true },
-      )
+    https.get(urls.getArticleDetail + '/' + article_id)
       .then(res => {
         if (res.status === 200 && res.data.code === 0) {
           const detail = res.data.data;
@@ -178,7 +171,7 @@ class Articles extends Component {
             detail.content = response.content;
             detail.toc = response.toc;
             // console.log('detail.toc :', detail);
-            this.setState({
+            self.setState({
               articleDetail: detail,
               isLoading: false,
             });
@@ -200,18 +193,18 @@ class Articles extends Component {
       });
   }
 
-  componentWillUnmount() {
-    document.title = 'Felix 的博客网站';
-    document
-      .getElementById('keywords')
-      .setAttribute('content', 'Felix 的博客网站');
-    document
-      .getElementById('description')
-      .setAttribute(
-        'content',
-        '分享 WEB 全栈开发等相关的技术文章，热点资源，全栈程序员的成长之路。',
-      );
-  }
+  // componentWillUnmount() {
+  //   document.title = 'Felix 的博客网站';
+  //   document
+  //     .getElementById('keywords')
+  //     .setAttribute('content', 'Felix 的博客网站');
+  //   document
+  //     .getElementById('description')
+  //     .setAttribute(
+  //       'content',
+  //       '分享 WEB 全栈开发等相关的技术文章，热点资源，全栈程序员的成长之路。',
+  //     );
+  // }
 
   componentWillMount() {
     if (this.props.location.pathname === '/about') {
@@ -231,13 +224,10 @@ class Articles extends Component {
   }
 
   render() {
-    console.log('isMobile :', this.state.isMobile);
     let width = this.state.isMobile ? '100%' : '75%';
-    const list = this.state.articleDetail.tags.map((item, i) => (
-      <span key={item.id} className="tag">
-        {item.name}
-      </span>
-    ));
+    const list = <span className="tag">
+      {this.state.articleDetail.tag_id}
+    </span>
 
     return (
       <div className="article clearfix">
@@ -274,13 +264,13 @@ class Articles extends Component {
                     字数 {this.state.articleDetail.numbers}
                   </span>
                   <span className="views-count">
-                    阅读 {this.state.articleDetail.meta.views}
+                    阅读 {1}
                   </span>
                   <span className="comments-count">
-                    评论 {this.state.articleDetail.meta.comments}
+                    评论 {1}
                   </span>
                   <span className="likes-count">
-                    喜欢 {this.state.articleDetail.meta.likes}
+                    喜欢 {1}
                   </span>
                 </div>
               </div>
@@ -311,7 +301,7 @@ class Articles extends Component {
               size="large"
               icon="heart"
               loading={this.state.isLoading}
-              onClick={this.likeArticle}
+              // onClick={this.likeArticle}
             >
               点赞
             </Button>
@@ -323,8 +313,8 @@ class Articles extends Component {
             handleAddComment={this.handleAddComment}
           />
           <CommentList
-            numbers={this.state.articleDetail.meta.comments}
-            list={this.state.articleDetail.comments}
+            numbers={1}
+            list={[]}
             article_id={this.state.articleDetail._id}
             refreshArticle={this.refreshArticle}
           />

@@ -23,7 +23,8 @@ class Layouts extends Component {
     if (
       pathName !== '/articleDetail' &&
       pathName !== '/about' &&
-      !isMobileOrPc()
+      !isMobileOrPc() &&
+      false
     ) {
       isShowSlider = true;
     }
@@ -46,10 +47,10 @@ class Layouts extends Component {
                   {!isShowSlider ? (
                     ''
                   ) : (
-                    <Sider width={350} style={{ background: '#fff' }}>
-                      <SliderRight />
-                    </Sider>
-                  )}
+                      <Sider width={350} style={{ background: '#fff' }}>
+                        <SliderRight />
+                      </Sider>
+                    )}
                 </Layout>
               </Content>
             </Layout>
@@ -59,8 +60,8 @@ class Layouts extends Component {
             <BackTop />
           </div>
         ) : (
-          <Index />
-        )}
+            <Index />
+          )}
       </div>
     );
   }
